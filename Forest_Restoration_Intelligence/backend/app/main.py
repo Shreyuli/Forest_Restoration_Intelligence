@@ -202,6 +202,16 @@ def chain_evidence(result_id: str, db: Session = Depends(get_db)):
     )
 
 
+@app.get("/")
+def root():
+    return {
+        "message": "Forest Restoration Intelligence API is running",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
